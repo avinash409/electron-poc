@@ -1,0 +1,47 @@
+<div class="col-md-12">
+    <form class="form-inline" [formGroup]="ordersForm" (ngSubmit)="onSubmit()">
+        
+        <div class="input-group mb-2 mr-sm-2">
+          <input type="text" class="form-control" id="employeeid" formControlName="employeeid" placeholder="EmployeeID">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Search Trailing</button>
+      </form>
+      <strong class="greeniconcolor" *ngIf="loading">Getting Data...<img class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></strong>
+      <button  (click)="ClearData()" type="submit" class="btn-mini btn-primary mb-2">Clear Data</button>
+      <button *ngIf="submitted" (click)="SaveOrders()" type="submit" class="btn-mini btn-primary mb-2">Save As</button>
+      <br />
+      <button *ngIf="submitted" (click)="SaveToMyDocs()" type="submit" class="btn-mini btn-primary mb-2">Save to My Docs</button>
+      <button  (click)="getFromMyDocs()" type="submit" class="btn-mini btn-primary mb-2">GET From My Docs</button>
+      <br />
+      <button *ngIf="submitted" (click)="SaveLocalStorage()" type="submit" class="btn-mini btn-primary mb-2">Save To Local Storage</button>
+<button  (click)="getLocalStorage()" type="submit" class="btn-mini btn-primary mb-2">GET From Local Storage</button>
+      <table class="table table-hover">
+  <thead class="text-uppercase g-letter-spacing-1">
+    <tr>
+      <th width='15%' class="g-font-weight-300 g-color-black">Order #</th>
+      <th class="g-font-weight-300 g-color-black g-min-width-200">Account #</th>
+      <th class="g-font-weight-300 g-color-black g-min-width-130">Account Name</th>
+      <th width='30%' class="g-font-weight-300 g-color-black g-min-width-200">Address</th>
+      <th class="g-font-weight-300 g-color-black">Trailing</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let order of allOrdersByUser">
+      <td class="align-middle"><small>{{order.orderNumber}}</small></td>
+      <td class="align-middle">{{order.account.id}}</td>
+      <td class="align-middle">{{order.account.name}}</td>
+      <td class="align-middle"><small>{{order.address.street}}</small></td>
+      <td *ngIf="order.isTrailingOrder === false" class="align-middle"><i class="far fa-frown rediconcolor"></i></td>
+      <td *ngIf="order.isTrailingOrder === true" class="align-middle"><i class="far fa-smile greeniconcolor"></i></td>
+
+      
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+
+
+
