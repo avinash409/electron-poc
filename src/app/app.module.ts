@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './test/test.component';
 import { ElectronService } from 'ngx-electron';
 import { CalculatorComponent } from './calculator/calculator/calculator.component';
+import { SqliteService } from './service/sqlite.service';
 
 const routes: Routes = [
   {path: 'orders', component: OrdersComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
   providers: [
     Configuration,
     ElectronService,
-    DBService
+    DBService,
+    SqliteService
   ],
   bootstrap: [AppComponent]
 })
