@@ -1,9 +1,10 @@
 <div class="col-md-12">
     Length:<br/>
-    <input type="text" name="Length"><br>
+    <input type="text" name="Length" [(ngModel)]="length"><br>
     Height:<br/>
-    <input type="text" name="Height">
+    <input type="text" name="Height" [(ngModel)]="height">
     <br/>
     <br/>
-    <input type="submit" value="Submit">
+    <h2 *ngIf="result">Result: <span class="blinking">{{result}}</span></h2>
+    <input type="submit" value="Submit" (click)="calculate()">
 </div>

@@ -11,17 +11,17 @@ export class NavbarComponent implements OnInit {
   networkstatusImg: string;
   constructor(private networkStatus: NetworkStatus, private config: Configuration) {
     setInterval( () => {
-      networkStatus.checkStatus()
-    .subscribe(
-      data => {
-        console.log(data);
-        this.networkstatusImg = 'assets/logo/online.png';
-      },
-      error => {
-        console.log(error);
-        this.networkstatusImg = 'assets/logo/offline.png';
-      }
-    );
+    //   networkStatus.checkStatus()
+    // .subscribe(
+    //   data => {
+    //     console.log(data);
+    //     this.networkstatusImg = 'assets/logo/online.png';
+    //   },
+    //   error => {
+    //     console.log(error);
+    //     this.networkstatusImg = 'assets/logo/offline.png';
+    //   }
+    // );
     }, 5000);
   }
 

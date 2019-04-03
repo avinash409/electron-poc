@@ -1,9 +1,7 @@
 import { OnInit, Injectable } from '@angular/core';
 import * as sqlite3 from 'sqlite3';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SqliteService implements OnInit {
   public sqlite: any;
   public db: any;
